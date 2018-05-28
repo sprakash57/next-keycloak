@@ -1,0 +1,39 @@
+<h1>Personal finance</h1>
+
+<div>
+  <h2>Your accounts</h2>
+
+  <div class="info" *ngIf="_account.length == 0">
+    You don't have any accounts added. Please add one.
+  </div>
+
+  <div class="info" *ngFor="let acc of _account, let i = index">
+    <h2>{{acc.id}}) {{acc.title}}</h2>
+    <p>{{acc.description}}</p>
+    <p>Balance:<strong>{{acc.balance}}</strong></p>
+    <button (click)="removeAcc(i)">Delete</button>
+  </div>  
+
+</div>
+<!-- #title is an example of local reference whose value will be passed to createAcc method in TS-->
+<div>
+  <div>
+    <label for="title">Title:</label>
+    <input id="title" type="text" name="title" value="" #title>
+  </div>
+
+  <div>
+    <label for="title">Description:</label>
+    <input id="title" type="text" name="title" value="" #desc>
+  </div>
+
+  <div>
+    <label for="title">Balance:</label>
+    <input id="title" type="text" name="title" value="" #balance>
+  </div>
+
+  <div>
+    <button (click)="createAcc(title.value,desc.value,balance.value)">Create</button>
+  </div>
+
+</div>

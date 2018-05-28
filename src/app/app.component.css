@@ -1,0 +1,21 @@
+.info{
+    background-color: #A1DBF0;
+    padding: 10px 24px;
+    margin: 8px;
+    color: black;
+}
+
+.acc{
+    background-color: #BBB;
+    padding: 10px 24px;
+    margin: 8px;
+    color: black;
+}
+
+.acc>*{
+    margin: 4px;
+}
+
+h1{
+    color: blue;
+}
