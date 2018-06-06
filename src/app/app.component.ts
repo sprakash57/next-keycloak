@@ -8,6 +8,7 @@ import { Account } from './account.model';
 })
 export class AppComponent {
 
+  private _selected:Array<boolean> = [false,false];
   private _account:Array<Account> = [
     {
       id:1,
@@ -27,6 +28,7 @@ export class AppComponent {
                                 descEL,
                                 balEl)
                               )
+    this._selected.push(false);
     this._nextId++
     titleEl.value = ""
     descEL.value = ""
@@ -35,5 +37,10 @@ export class AppComponent {
   //This method will delete the indexed account 1 at a time
   private removeAcc(index:number){
     this._account.splice(index,1)
+    this._selected.splice(index,1)
+  }
+
+  private select(index:number){
+    this._selected[index] = !this._selected[index]
   }
 }
