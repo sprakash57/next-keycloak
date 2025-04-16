@@ -4,9 +4,7 @@ import { signOut } from "next-auth/react";
 export default function Logout() {
   const handleSignOut = async () => {
     // Clean NextAuth session
-    await signOut({
-      callbackUrl: "/",
-    });
+    await signOut();
   };
 
   // Helper function to get the id_token from the session

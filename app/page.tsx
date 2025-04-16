@@ -1,17 +1,10 @@
-import Login from "@/components/Login";
 import Logout from "@/components/Logout";
 import { getAuthSession } from "@/lib/auth";
-import { cookies } from "next/headers";
 import Image from "next/image";
+import Login from "@/components/Login";
 
 export default async function Home() {
   const session = await getAuthSession();
-  const logoutRequested = (await cookies()).get("logout")?.value === "true";
-
-  if (logoutRequested) {
-    (await cookies()).set("logout", "false");
-    return <div>Logging out...</div>;
-  }
 
   if (!session) {
     return <Login />;

@@ -1,5 +1,6 @@
 "use client";
 
+import { Loader } from "@/assets/icons/loader";
 import { signIn } from "next-auth/react";
 import React from "react";
 
@@ -9,5 +10,9 @@ export default function Login() {
     signIn("keycloak", { callbackUrl: "/" });
   }, []);
 
-  return <p>Redirecting to Keycloak...</p>;
+  return (
+    <main className="fixed inset-0 flex items-center justify-center bg-white">
+      <Loader className="animate-spin" />
+    </main>
+  );
 }
